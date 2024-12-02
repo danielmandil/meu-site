@@ -232,6 +232,7 @@ body {
 .footer p {
     margin: 0;
     font-size: 16px;
+    color: white;
 }
 
 .footer-links {
@@ -243,17 +244,24 @@ body {
     gap: 20px;
 }
 
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+.footer-links li {
+    display: inline;
 }
 
+.footer-links a {
+    color: white; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 .footer-links a:hover {
     color: #ff9800; /* Laranja ao passar o mouse */
 }
 
+.footer-links a:visited {
+    color: white; /* Mesma cor para links visitados */
+}
 
 .clients {
     padding: 40px 20px;

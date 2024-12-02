@@ -24,8 +24,21 @@ body {
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
+    color: white; /* Cor fixa do texto */
+    text-decoration: none; /* Remove o sublinhado */
 }
+
+.logo:visited {
+    color: white; /* Garante que a cor não mude após o clique */
+    text-decoration: none; /* Garante que continue sem sublinhado */
+    cursor: default; /* Remove o cursor de "link" */
+}
+
+.logo:hover {
+    color: #ff9800; /* Opcional: cor ao passar o mouse */
+}
+
+
 
 .nav-list {
     list-style: none;
@@ -509,4 +522,83 @@ div[data-tf-live] {
 
 .specialties-cta .button:hover {
     background-color: #e68a00;
+}
+/* Estilização Geral do Blog */
+.blog {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Fundo claro para contraste */
+    text-align: center;
+}
+
+.blog h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Grade de Posts */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Estilização dos Cards */
+.post {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar o card */
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de Hover nos Cards */
+.post:hover {
+    transform: scale(1.05); /* Leve aumento */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Título dos Posts */
+.post h3 {
+    font-size: 20px;
+    color: #004d7a; /* Azul do tema */
+    margin-bottom: 10px;
+}
+
+.post h3 a {
+    text-decoration: none;
+    color: #004d7a;
+}
+
+.post h3 a:hover {
+    color: #0072ff; /* Azul mais claro no hover */
+}
+
+/* Texto Geral do Post */
+.post p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post p strong {
+    color: #333;
+}
+
+/* Botão Saiba Mais */
+.read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #004d7a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #0072ff;
 }

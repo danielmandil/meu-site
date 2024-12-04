@@ -90,9 +90,13 @@ body {
 
 
 .hero-text h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    margin: 0; /* Remove margens adicionais */
+    padding: 0; /* Remove qualquer preenchimento adicional */
+    font-size: 32px; /* Ajuste conforme necessário */
+    line-height: 1.2; /* Garante espaçamento uniforme entre as linhas */
+    color: #004d7a; /* Ajuste de cor, se necessário */
 }
+
 
 .hero-text ul {
     margin-top: 10px;

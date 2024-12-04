@@ -36,24 +36,77 @@
                     <li><strong>Cultura de experimentação:</strong> Implementamos processos ágeis para testar ideias rapidamente, minimizar riscos e acelerar a inovação.</li>
                 </ul>
             </div>
-            <!-- Formulário ao lado -->
-            <iframe 
-                src="https://3ebxim7ymdb.typeform.com/to/TRe3TxSj" 
-                class="google-form" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">
-                Carregando…
-            </iframe>
-        </div>
-    </section>
-    
 
-<!-- Script para carregar o Typeform -->
-<script src="//embed.typeform.com/next/embed.js"></script>
-       
-        </div>
-    </section>
+            <!-- Formulário à direita -->
+       <div class="hero-form">
+        <h3>Entre em Contato</h3>
+        <form id="contactForm" class="custom-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Seu email" required>
+
+            <label for="company">Nome da Empresa:</label>
+            <input type="text" id="company" name="company" placeholder="Nome da sua empresa" required>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+
+            <button type="submit" class="button">Enviar</button>
+        </form>
+        <p id="formResponse" style="margin-top: 20px; color: green; display: none;"></p>
+    </div>
+</div>
+</section>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Converte os dados do formulário para um objeto
+    const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        company: formData.get("company"),
+        message: formData.get("message")
+    };
+
+    // URL do Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzFYjSAIjFkkH7niTR3bAVSHvL4aL7A723TDOR0yO53TO62Y6RJCLF-GGs72_5gwgxAHg/exec";
+
+    try {
+        // Envia os dados para o Google Sheets
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(data)
+        });
+
+        if (response.ok) {
+            // Mostra uma mensagem de sucesso
+            document.getElementById("formResponse").style.display = "block";
+            document.getElementById("formResponse").innerText = "Formulário enviado com sucesso! Entraremos em contato em breve.";
+            form.reset(); // Limpa o formulário após o envio
+        } else {
+            // Mostra uma mensagem de erro
+            document.getElementById("formResponse").style.display = "block";
+            document.getElementById("formResponse").style.color = "red";
+            document.getElementById("formResponse").innerText = "Ocorreu um erro. Tente novamente mais tarde.";
+        }
+    } catch (error) {
+        // Mostra uma mensagem de erro em caso de falha na conexão
+        document.getElementById("formResponse").style.display = "block";
+        document.getElementById("formResponse").style.color = "red";
+        document.getElementById("formResponse").innerText = "Erro ao enviar o formulário. Verifique sua conexão.";
+    }
+});
+
+</script>
+
 
     <section id="about" class="about">
         <div class="container">

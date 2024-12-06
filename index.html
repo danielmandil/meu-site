@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultoria TBD</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
     <header class="header">
@@ -22,7 +24,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section id="contact" class="hero">
         <div class="container hero-content">
             <!-- Descrição -->
             <div class="hero-text">
@@ -38,26 +40,30 @@
             </div>
 
             <!-- Formulário à direita -->
-       <div class="hero-form">
-        <h3>Entre em Contato</h3>
-        <form id="contactForm" class="custom-form">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Seu email" required>
-
-            <label for="company">Nome da Empresa:</label>
-            <input type="text" id="company" name="company" placeholder="Nome da sua empresa" required>
-
-            <label for="message">Mensagem:</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem" required></textarea>
-
-            <button type="submit" class="button">Enviar</button>
-        </form>
-        <p id="formResponse" style="margin-top: 20px; color: green; display: none;"></p>
-    </div>
-</div>
+            <div class="hero-form">
+                <h3>Entre em Contato</h3>
+                <form id="contactForm" class="custom-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome" required>
+            
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Seu email" required>
+                    <small id="emailError" class="error-message" style="display: none; color: red;">Por favor, insira um email válido.</small>
+            
+                    <label for="phone">Telefone (Opcional):</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Seu telefone">
+            
+                    <label for="company">Nome da Empresa:</label>
+                    <input type="text" id="company" name="company" placeholder="Nome da sua empresa" required>
+            
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+            
+                    <button type="submit" class="button">Enviar</button>
+                </form>
+                <p id="formResponse" style="margin-top: 20px; display: none;"></p>
+            </div>
+            
 </section>
 
 <script>
@@ -299,5 +305,98 @@
     
 
     <script src="script.js"></script>
+
+    <script>
+        // Scroll suave para os links do menu
+        document.querySelectorAll('.nav-list a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+
+<!-- Botão de CTA fixo -->
+<a href="#contact" class="cta-button">
+    <i class="fa fa-envelope"></i> Entre em Contato
+</a>
+
+</footer>
+
+<!-- Botão de CTA fixo -->
+<a href="#contact" class="cta-button">
+    <i class="fa fa-envelope"></i> Entre em Contato
+</a>
+
+<script src="script.js"></script>
+
+<script>
+    const form = document.getElementById("contactForm");
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+    const formResponse = document.getElementById("formResponse");
+
+    // Validação em tempo real do email
+    emailInput.addEventListener("input", function () {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.style.display = "block";
+        } else {
+            emailError.style.display = "none";
+        }
+    });
+
+    // Validação e envio do formulário
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // Validação final do email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            emailError.style.display = "block";
+            return;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            phone: formData.get("phone") || "N/A",
+            company: formData.get("company"),
+            message: formData.get("message"),
+        };
+
+        // URL do Google Apps Script
+        const scriptURL = "https://script.google.com/macros/s/SEU-SCRIPT-ID/exec";
+
+        try {
+            const response = await fetch(scriptURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                formResponse.style.display = "block";
+                formResponse.style.color = "green";
+                formResponse.innerText = "Formulário enviado com sucesso! Entraremos em contato em breve.";
+                form.reset();
+            } else {
+                throw new Error("Erro ao enviar o formulário.");
+            }
+        } catch (error) {
+            formResponse.style.display = "block";
+            formResponse.style.color = "red";
+            formResponse.innerText = "Ocorreu um erro. Tente novamente mais tarde.";
+        }
+    });
+</script>
+
+
 </body>
 </html>

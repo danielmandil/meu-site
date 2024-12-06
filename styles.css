@@ -14,12 +14,12 @@ body {
 
 /* Cabeçalho */
 .header {
-    background-color: #004d7a; /* Azul escuro moderno */
-    color: white;
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #004d7a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
 }
 
 .logo {
@@ -41,24 +41,28 @@ body {
 
 
 .nav-list {
-    list-style: none;
     display: flex;
+    justify-content: center;
     gap: 20px;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.nav-list a {
-    color: white; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
     font-size: 16px;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-list a:hover {
-    color: #ff9800; /* Cor laranja ao passar o mouse */
+.nav-list li a:hover {
+    background-color: #0072ff;
+    color: #fff;
+    border-radius: 5px;
 }
-
 
 /* Hero (Descrição + Formulário) */
 .hero {
@@ -744,4 +748,69 @@ div[data-tf-live] {
 
 .custom-form .button:hover {
     background-color: #0072ff;
+}
+
+/* Botão de CTA fixo */
+.cta-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #004d7a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.cta-button:hover {
+    background-color: #0072ff;
+    transform: scale(1.05);
+}
+
+/* Responsivo: Ajuste para telas menores */
+@media (max-width: 768px) {
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+
+.cta-button {
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mensagem de erro */
+.error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Mensagem de confirmação */
+#formResponse {
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+    background-color: #f0f9f0;
+    border: 1px solid #c1e2c1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
 }

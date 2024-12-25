@@ -628,17 +628,23 @@ body {
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .hero-content {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
         align-items: center;
-        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
     }
 
     .hero-text {
-        max-width: 100%;
+        flex: 1 1 100%;
+        text-align: center;
     }
-
+    
     .hero-form {
-        max-width: 100%;
+        flex: 1 1 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .team {

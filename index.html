@@ -17,7 +17,7 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#specialties">Especialidades</a></li> <!-- Novo link adicionado -->
                     <li><a href="#clients">Clientes</a></li> <!-- Link para a seção "Clientes" -->
-                    <li><a href="https://3ebxim7ymdb.typeform.com/to/TRe3TxSj">Contato</a></li>
+                    <li><a href="#contact">Contato</a></li>
                     <li><a href="blog.html">Blog</a></li> <!-- Link para o Blog -->
                 </ul>
             </nav>
@@ -50,9 +50,9 @@
                     <input type="email" id="email" name="email" placeholder="Seu email" required>
                     <small id="emailError" class="error-message" style="display: none; color: red;">Por favor, insira um email válido.</small>
             
-                    <label for="phone">Telefone (Opcional):</label>
+                    <label for="phone">Telefone:</label>
                     <input type="tel" id="phone" name="phone" placeholder="Seu telefone">
-            
+
                     <label for="company">Nome da Empresa:</label>
                     <input type="text" id="company" name="company" placeholder="Nome da sua empresa" required>
             
@@ -265,7 +265,7 @@
                 </div>
             </div>
             <div class="specialties-cta">
-                <a href="https://3ebxim7ymdb.typeform.com/to/TRe3TxSj" class="button">Entre em Contato</a>
+                <a href="#contact" class="button">Entre em Contato</a>
             </div>
         </div>
     </section>
@@ -296,7 +296,7 @@
         <div class="container">
             <p>Entre em contato conosco:</p>
             <ul class="footer-links">
-                <li><a href="https://3ebxim7ymdb.typeform.com/to/TRe3TxSj" target="_blank">Email</a></li>
+                <li><a href="#contact">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/danielmandil" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
@@ -333,67 +333,60 @@
 </a>
 
 <script src="script.js"></script>
-
 <script>
     const form = document.getElementById("contactForm");
-    const emailInput = document.getElementById("email");
-    const emailError = document.getElementById("emailError");
     const formResponse = document.getElementById("formResponse");
+    let isSubmitting = false; // Controle para evitar múltiplos envios
 
-    // Validação em tempo real do email
-    emailInput.addEventListener("input", function () {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
-            emailError.style.display = "block";
-        } else {
-            emailError.style.display = "none";
-        }
-    });
-
-    // Validação e envio do formulário
     form.addEventListener("submit", async function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Evita o envio padrão do formulário
 
-        // Validação final do email
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-            emailError.style.display = "block";
-            return;
-        } else {
-            emailError.style.display = "none";
-        }
+        if (isSubmitting) return; // Evita múltiplos envios
+        isSubmitting = true; // Marca como em envio
+
+        // Mostra o estado de carregamento
+        formResponse.style.display = "block";
+        formResponse.style.color = "blue";
+        formResponse.innerText = "Enviando...";
 
         const formData = new FormData(form);
-        const data = {
-            name: formData.get("name"),
-            email: formData.get("email"),
-            phone: formData.get("phone") || "N/A",
-            company: formData.get("company"),
-            message: formData.get("message"),
-        };
 
         // URL do Google Apps Script
-        const scriptURL = "https://script.google.com/macros/s/SEU-SCRIPT-ID/exec";
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzFYjSAIjFkkH7niTR3bAVSHvL4aL7A723TDOR0yO53TO62Y6RJCLF-GGs72_5gwgxAHg/exec";
 
         try {
             const response = await fetch(scriptURL, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: formData,
             });
 
             if (response.ok) {
-                formResponse.style.display = "block";
                 formResponse.style.color = "green";
                 formResponse.innerText = "Formulário enviado com sucesso! Entraremos em contato em breve.";
-                form.reset();
+                form.reset(); // Limpa o formulário
             } else {
                 throw new Error("Erro ao enviar o formulário.");
             }
         } catch (error) {
-            formResponse.style.display = "block";
             formResponse.style.color = "red";
             formResponse.innerText = "Ocorreu um erro. Tente novamente mais tarde.";
+        } finally {
+            isSubmitting = false; // Permite novos envios após conclusão
         }
+    });
+</script>
+
+<script>
+    // Habilita rolagem suave para os links de âncora
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
     });
 </script>
 

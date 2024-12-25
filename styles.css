@@ -24,21 +24,9 @@ body {
 
 .logo {
     font-size: 24px;
-    color: white; /* Cor fixa do texto */
-    text-decoration: none; /* Remove o sublinhado */
+    color: white;
+    text-decoration: none;
 }
-
-.logo:visited {
-    color: white; /* Garante que a cor não mude após o clique */
-    text-decoration: none; /* Garante que continue sem sublinhado */
-    cursor: default; /* Remove o cursor de "link" */
-}
-
-.logo:hover {
-    color: #ff9800; /* Opcional: cor ao passar o mouse */
-}
-
-
 
 .nav-list {
     display: flex;
@@ -70,37 +58,33 @@ body {
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    background: linear-gradient(120deg, #f4f4f4, #e0e0e0); /* Gradiente neutro: bege claro e cinza claro */
-    color: #333; /* Texto em cinza escuro */
+    background: linear-gradient(120deg, #f4f4f4, #e0e0e0);
+    color: #333;
     text-align: left;
-    margin-bottom: 10px; /* Reduza o espaço inferior do formulário */
 }
 
 .hero-content {
     display: flex;
-    flex-wrap: wrap; /* Torna o layout responsivo */
-    gap: 20px; /* Espaçamento entre os elementos */
-    align-items: flex-start; /* Alinha os elementos no topo */
-    justify-content: space-between; /* Distribui espaço uniformemente */
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .hero-text {
-    flex: 1 1 50%; /* O texto ocupa 50% do espaço disponível */
+    flex: 1 1 50%;
     max-width: 600px;
-    text-align: left; /* Alinha o texto à esquerda */
-    font-size: 18px; /* Aumenta o tamanho do texto */
-    line-height: 1.8; /* Adiciona mais espaçamento entre as linhas */
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.8;
 }
-
 
 .hero-text h2 {
-    margin: 0; /* Remove margens adicionais */
-    padding: 0; /* Remove qualquer preenchimento adicional */
-    font-size: 32px; /* Ajuste conforme necessário */
-    line-height: 1.2; /* Garante espaçamento uniforme entre as linhas */
-    color: #004d7a; /* Ajuste de cor, se necessário */
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #004d7a;
 }
-
 
 .hero-text ul {
     margin-top: 10px;
@@ -111,44 +95,72 @@ body {
     color: #555;
 }
 
-.hero-text ul li strong {
-    color: #333;
-    font-weight: bold;
+.hero-form {
+    flex: 1 1 40%; /* O formulário ocupa 40% do espaço disponível */
+    max-width: 250px; /* Define uma largura máxima */
+    background-color: #f9f9f9;
+    padding: 30px; /* Padding interno do formulário */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os elementos internos */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza os elementos filhos, incluindo o título */
+    text-align: center; /* Alinha o texto ao centro */
 }
 
-.lead-form {
-    flex: 1 1 40%;
-    max-width: 400px;
+.hero-form h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #004d7a;
+    text-align: center; /* Garante alinhamento central */
+}
+
+.custom-form input,
+.custom-form textarea {
+    width: calc(100% - 10px); /* Ajusta para não ultrapassar a borda visível */
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+.custom-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin: 0 auto; /* Centraliza o formulário dentro do container */
+    max-width: 100%; /* Garante que ele não ultrapasse os limites do container */
 }
 
-.lead-form input, .lead-form textarea {
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.lead-form button {
-    background-color: #ff9800; /* Laranja vibrante */
-    color: white;
-    padding: 10px 20px;
+.custom-form label {
     font-size: 14px;
+    color: #333;
+}
+
+.custom-form .button {
+    padding: 10px 20px;
+    background-color: #004d7a;
+    color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
-    margin: 0 auto; /* Centraliza o botão */
+    font-size: 16px;
+}
+
+.custom-form .button:hover {
+    background-color: #0072ff;
 }
 
 /* Seção Sobre Nós */
 .about {
     padding: 40px 20px;
-    background-color: #f9f9f9; /* Cinza claro */
+    background-color: #f9f9f9;
     text-align: center;
-    margin-top: -10px; /* Remove espaço superior da seção "Sobre Nós" */
 }
 
 .about h2 {
@@ -157,16 +169,14 @@ body {
 }
 
 .about-description {
-    font-size: 18px; /* Tamanho do texto */
-    line-height: 1.6; /* Espaçamento entre as linhas */
-    color: #555; /* Cor do texto em cinza escuro */
-    margin-bottom: 20px; /* Espaço abaixo da frase */
-    text-align: center; /* Centraliza o texto */
-    max-width: 800px; /* Limita a largura para manter legibilidade */
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
-
 
 .team {
     display: flex;
@@ -187,267 +197,62 @@ body {
 }
 
 .member img {
-    width: 100px; /* Largura da foto */
-    height: 100px; /* Altura da foto */
-    object-fit: cover; /* Garante que a foto fique bem enquadrada */
-    border-radius: 50%; /* Fotos em formato circular */
-    margin-bottom: 10px; /* Espaço entre a foto e o título */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .member h3 {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #004d7a; /* Azul escuro */
+    color: #004d7a;
 }
 
 .member p {
     font-size: 14px;
-    color: #555; /* Texto em cinza médio */
-    line-height: 1.5;
-}
-.details {
-    text-align: left; /* Alinha o texto das seções internas à esquerda */
-    margin-top: 10px;
-}
-
-.details h4 {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.details p {
-    font-size: 14px;
     color: #555;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .logos {
     display: flex;
     gap: 10px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: center; /* Alinha as logos ao centro */
+    flex-wrap: wrap; /* Permite que as logos sejam organizadas em várias linhas, se necessário */
 }
 
 .logos img {
-    width: 50px;
-    height: 60px;
-    object-fit: contain;
-    border-radius: 4px;
+    width: 60px; /* Largura consistente para todas as logos */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: contain; /* Garante que a imagem fique inteira dentro do espaço */
+    border-radius: 4px; /* Opcional: deixa as bordas ligeiramente arredondadas */
+    margin: 5px; /* Adiciona espaçamento ao redor das logos */
+    transition: transform 0.2s ease; /* Animação suave para hover */
 }
 
-
-/* Rodapé */
-.footer {
-    background-color: #004d7a; /* Fundo azul escuro */
-    color: white; /* Texto branco */
-    padding: 20px 0;
-    text-align: center;
+.logos img:hover {
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
 }
 
-.footer p {
-    margin: 0;
-    font-size: 16px;
-    color: white;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer-links li {
-    display: inline;
-}
-
-.footer-links a {
-    color: white; /* Cor do link */
-    text-decoration: none; /* Remove sublinhado */
-    font-size: 14px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-.footer-links a:hover {
-    color: #ff9800; /* Laranja ao passar o mouse */
-}
-
-.footer-links a:visited {
-    color: white; /* Mesma cor para links visitados */
-}
-
-.clients {
-    padding: 40px 20px;
-    background-color: #ffffff; /* Fundo branco para destacar */
-    text-align: center;
-}
-
-.clients h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #333; /* Título em cinza escuro */
-}
-
-.client-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.client {
-    flex: 1 1 calc(25% - 40px);
-    max-width: 250px;
-    background-color: #f9f9f9; /* Fundo cinza claro */
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.client h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #004d7a; /* Azul escuro */
-}
-
-.client p {
-    font-size: 14px;
-    color: #555; /* Texto em cinza médio */
-    line-height: 1.5;
-}
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    /* Ajustes gerais */
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    /* Hero Section */
-    .hero-content {
-        flex-direction: column; /* Empilha o texto e o formulário */
-        text-align: center; /* Centraliza o conteúdo da seção */
-    }
-
-    .hero-text {
-        flex: 1 1 auto;
-        max-width: 100%;
-        text-align: center; /* Centraliza o texto principal */
-    }
-
-    .hero-text ul {
-        text-align: left; /* Alinha os bullet points à esquerda */
-        display: inline-block; /* Mantém o alinhamento dentro do texto centralizado */
-        margin: 0 auto; /* Centraliza visualmente a lista */
-    }
-
-    .lead-form {
-        max-width: 100%; /* O formulário ocupa toda a largura */
-        margin: 0 auto; /* Centraliza o formulário */
-        text-align: left; /* Garante alinhamento à esquerda interno */
-    }
-
-    .lead-form input, 
-    .lead-form textarea, 
-    .lead-form button {
-        margin: 0 auto; /* Centraliza os elementos do formulário */
-        display: block; /* Garante que cada elemento fique em sua própria linha */
-    }
-
-    .lead-form button {
-        align-self: center; /* Garante que o botão continue centralizado */
-    }
-
-
-
-    /* Seção "Sobre Nós" */
-    .team {
-        flex-direction: column; /* Empilha os cards dos sócios */
-        gap: 20px;
-    }
-
-    .member {
-        max-width: 100%; /* Cards ocupam 100% da largura */
-    }
-
-    /* Seção "Clientes" */
-    .client-list {
-        flex-direction: column; /* Empilha os cards dos clientes */
-        gap: 20px;
-    }
-
-    .client {
-        max-width: 100%; /* Cards ocupam 100% da largura */
-    }
-
-}
-/* Ajuste do layout da Hero Section */
-.hero-content {
-    display: flex; /* Alinha os elementos lado a lado */
-    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
-    justify-content: space-between; /* Espaço uniforme entre texto e formulário */
-    align-items: flex-start; /* Alinha os itens no topo */
-    gap: 20px; /* Espaçamento entre texto e formulário */
-}
-
-.hero-text {
-    flex: 1 1 50%; /* O texto ocupa 50% do espaço disponível */
-    max-width: 600px;
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-.google-form {
-    flex: 1 1 40%; /* O formulário ocupa 40% do espaço disponível */
-    max-width: 600px;
-    height: 600px; /* Altura do iframe para acomodar o formulário */
-    margin: 0 auto; /* Centraliza o iframe verticalmente */
-    border: none; /* Remove bordas do iframe */
-}
-
-/* Responsividade: Ajusta o layout para telas menores */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column; /* Empilha o texto e o formulário */
-        align-items: center; /* Centraliza o conteúdo */
-    }
-
-    .hero-text, .google-form {
-        max-width: 100%; /* Ocupa toda a largura disponível */
-    }
-
-    .google-form {
-        height: auto; /* Ajusta a altura dinamicamente */
-    }
-}
-
-.typeform-container {
-    flex: 1 1 30%; /* O formulário ocupa 30% do espaço disponível */
-    max-width: 600px; /* Define uma largura máxima */
-    height: 600px; /* Altura padrão */
-    margin: 0 auto; /* Centraliza o formulário */
-    margin-bottom: 0; /* Remove o espaço inferior */
-    padding-bottom: 0; /* Remove o padding, se houver */
-}
 .member h3 a {
     color: #004d7a; /* Azul escuro */
     text-decoration: none; /* Remove o sublinhado */
     transition: color 0.3s ease;
 }
 
+.member h3 a:visited {
+    color: #004d7a; /* Mantém a mesma cor do link original */
+    text-decoration: none; /* Garante que o sublinhado não volte */
+}
+
 .member h3 a:hover {
     color: #ff9800; /* Cor laranja ao passar o mouse */
 }
-div[data-tf-live] {
-    margin-bottom: 0 !important; /* Força a remoção do espaçamento automático */
-    padding-bottom: 0 !important; /* Remove qualquer padding interno */
-}
-/* Estilo geral da seção Especialidades */
+
+
+/* Seção Especialidades */
 .specialties {
     padding: 50px 20px;
     background: linear-gradient(120deg, #004d7a, #0072ff); /* Fundo com gradiente */
@@ -459,7 +264,6 @@ div[data-tf-live] {
     font-size: 28px;
     color: white;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .specialties-description {
@@ -548,16 +352,96 @@ div[data-tf-live] {
 .specialties-cta .button:hover {
     background-color: #e68a00;
 }
+
+/* Responsividade para a seção especialidades */
+@media (max-width: 768px) {
+    .specialties-grid {
+        grid-template-columns: 1fr; /* Um cartão por linha em telas menores */
+    }
+
+    .specialties-description {
+        text-align: center;
+    }
+}
+
+/* Seção Clientes */
+.clients {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Fundo cinza claro */
+    text-align: center;
+}
+
+.clients h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333; /* Título em cinza escuro */
+}
+
+/* Grade de Clientes */
+.client-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start; /* Alinha os cards no topo */
+}
+
+/* Estilo de cada cliente */
+.client {
+    background: white; /* Fundo branco */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar os cards */
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client:hover {
+    transform: scale(1.05); /* Leve aumento no hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do título do cliente */
+.client h3 {
+    font-size: 20px;
+    color: #004d7a; /* Azul do tema */
+    margin-bottom: 15px;
+}
+
+/* Texto do feedback do cliente */
+.client p {
+    font-size: 14px;
+    color: #555; /* Texto em cinza médio */
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify; /* Justifica o texto */
+}
+
+/* Responsividade para a seção de clientes */
+@media (max-width: 768px) {
+    .client-list {
+        grid-template-columns: 1fr; /* Um card por linha em telas menores */
+    }
+
+    .clients h2 {
+        font-size: 24px; /* Reduz o tamanho do título em telas menores */
+    }
+
+    .client {
+        padding: 15px;
+    }
+}
+
 /* Estilização Geral do Blog */
 .blog {
-    padding: 40px 20px;
+    padding: 50px 20px;
     background-color: #f9f9f9; /* Fundo claro para contraste */
     text-align: center;
 }
 
 .blog h2 {
     font-size: 28px;
-    color: #333;
+    color: #333; /* Título em cinza escuro */
     margin-bottom: 30px;
 }
 
@@ -570,7 +454,7 @@ div[data-tf-live] {
 
 /* Estilização dos Cards */
 .post {
-    background-color: white;
+    background-color: white; /* Fundo branco para os cards */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar o card */
     padding: 20px;
@@ -581,7 +465,7 @@ div[data-tf-live] {
 /* Efeito de Hover nos Cards */
 .post:hover {
     transform: scale(1.05); /* Leve aumento */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
 }
 
 /* Título dos Posts */
@@ -628,7 +512,22 @@ div[data-tf-live] {
     background-color: #0072ff;
 }
 
-/* Seção de Botões no Final do Post */
+/* Responsividade */
+@media (max-width: 768px) {
+    .blog-posts {
+        grid-template-columns: 1fr; /* Um post por linha em telas menores */
+    }
+
+    .post {
+        padding: 15px;
+    }
+
+    .post h3 {
+        font-size: 18px; /* Ajusta o tamanho do título */
+    }
+}
+
+/* Botões no final de cada post */
 .post-buttons {
     text-align: center;
     padding: 20px 0;
@@ -644,173 +543,115 @@ div[data-tf-live] {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 .post-buttons .button:hover {
     background-color: #0072ff;
 }
-/* Estilo geral da seção */
-.hero-content {
-    display: flex;
-    flex-wrap: wrap; /* Torna o layout responsivo */
-    gap: 20px; /* Espaçamento entre os elementos */
-    align-items: flex-start; /* Alinha os elementos no topo */
-    justify-content: space-between; /* Distribui espaço uniformemente */
+
+/* Texto dos posts */
+.blog-post-content {
+    font-family: "Georgia", serif; /* Troca para uma fonte legível e elegante */
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    line-height: 1.8; /* Adiciona espaçamento entre as linhas */
+    color: #333; /* Texto em cinza escuro */
+    margin: 20px auto; /* Adiciona espaçamento ao redor do texto */
+    max-width: 800px; /* Limita a largura para facilitar a leitura */
 }
 
-/* Texto à esquerda */
-.hero-text {
-    flex: 1 1 50%; /* Ocupa 50% do espaço na tela maior */
-    max-width: 600px; /* Define uma largura máxima */
+.blog-post-content h2, 
+.blog-post-content h3 {
+    color: #004d7a; /* Azul para os subtítulos */
+    margin-top: 30px; /* Espaço extra acima dos subtítulos */
+    margin-bottom: 15px; /* Espaço abaixo dos subtítulos */
+    line-height: 1.4;
 }
 
-.hero-text h2 {
-    margin-bottom: 20px;
-    font-size: 32px;
-    color: #004d7a;
+.blog-post-content p {
+    margin-bottom: 20px; /* Espaçamento entre parágrafos */
 }
 
-.hero-text ul {
-    margin-top: 20px;
-    padding-left: 20px;
-    list-style-type: disc;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #555;
+.blog-post-content ul {
+    padding-left: 20px; /* Identação para listas */
+    list-style-type: disc; /* Marcador padrão */
 }
 
-.hero-text ul li strong {
-    color: #333;
-    font-weight: bold;
+.blog-post-content ul li {
+    margin-bottom: 10px; /* Espaço entre itens da lista */
 }
 
-/* Formulário à direita */
-.hero-form {
-    flex: 1 1 40%; /* Ocupa 40% do espaço na tela maior */
-    max-width: 400px; /* Define uma largura máxima */
-    background-color: #f9f9f9;
-    padding: 30px; /* Aumenta o padding interno para dar mais espaço */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Adiciona espaçamento entre os elementos internos */
+/* Responsividade para posts */
+@media (max-width: 768px) {
+    .blog-post-content {
+        font-size: 16px; /* Reduz ligeiramente o tamanho da fonte em telas menores */
+        line-height: 1.6; /* Ajusta o espaçamento para manter a legibilidade */
+    }
+
+    .post-buttons .button {
+        font-size: 14px; /* Ajusta o tamanho dos botões */
+        padding: 8px 16px;
+    }
 }
 
-.hero-form h3 {
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #004d7a;
-}
 
-.custom-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.custom-form label {
-    font-size: 14px;
-    color: #333;
-}
-
-/* Inputs e Textarea */
-.custom-form input,
-.custom-form textarea {
-    width: 100%;
-    padding: 12px 15px; /* Aumenta o padding interno dos campos */
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px; /* Adiciona espaço entre os campos */
-    box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
-}
-
-.custom-form textarea {
-    resize: vertical;
-}
-
-/* Espaçamento do botão */
-.custom-form .button {
-    align-self: flex-start;
-    padding: 10px 20px;
-    margin-top: 10px; /* Espaçamento entre o último campo e o botão */
+/* Rodapé */
+.footer {
     background-color: #004d7a;
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.custom-form .button:hover {
-    background-color: #0072ff;
-}
-
-/* Botão de CTA fixo */
-.cta-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #004d7a;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 12px 20px;
-    border-radius: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 1000;
-}
-
-.cta-button:hover {
-    background-color: #0072ff;
-    transform: scale(1.05);
-}
-
-/* Responsivo: Ajuste para telas menores */
-@media (max-width: 768px) {
-    .cta-button {
-        font-size: 14px;
-        padding: 10px 16px;
-    }
-}
-
-
-.cta-button {
-    animation: fadeInUp 0.5s ease-in-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Mensagem de erro */
-.error-message {
-    font-size: 14px;
-    color: red;
-    margin-top: -10px;
-    margin-bottom: 15px;
-}
-
-/* Mensagem de confirmação */
-#formResponse {
-    font-size: 16px;
-    font-weight: bold;
-    color: green;
-    background-color: #f0f9f0;
-    border: 1px solid #c1e2c1;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 20px 0;
     text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-form {
+        max-width: 100%;
+    }
+
+    .team {
+        flex-direction: column;
+    }
+
+    .member {
+        max-width: 100%;
+    }
+
+    .custom-form input,
+    .custom-form textarea,
+    .custom-form .button {
+        width: 100%;
+    }
 }

@@ -4,13 +4,21 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* Garante que o box-sizing seja aplicado a todos os elementos */
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%; /* Garante que a largura não ultrapasse o tamanho da tela */
+    max-width: 1200px; /* Define uma largura máxima para desktops */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 0 15px; /* Adiciona espaço interno nas laterais */
+    overflow: hidden; /* Evita estouro de conteúdo */
 }
+
 
 /* Cabeçalho */
 .header {
@@ -19,17 +27,46 @@ body {
     z-index: 1000;
     background-color: #004d7a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
+    width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+    padding: 15px 0;
+    text-align: center; /* Centraliza o conteúdo no cabeçalho */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: space-between; /* Espaça o logotipo e o menu */
+    padding: 10px 20px; /* Espaçamento interno */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Garante que os itens fiquem na mesma linha */
 }
 
 .logo {
     font-size: 24px;
     color: white;
     text-decoration: none;
+    max-height: 50px; /* Altura máxima para a logo */
+    width: auto; /* Mantém a proporção da imagem */
 }
 
+.logo-container {
+    flex: 0 1 auto; /* Permite que a logo ocupe o espaço necessário */
+}
+
+.logo-img {
+    max-width: 300px; /* Define uma largura máxima para o logotipo */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-block; /* Garante que a imagem seja tratada como um elemento inline */
+    margin: 0 auto; /* Centraliza o logotipo */
+    vertical-align: middle; /* Centraliza verticalmente no header */
+}
+
+
+
 .nav-list {
-    display: flex;
+    display: inline-flex; /* Alinha os links em linha */
     justify-content: center;
     gap: 20px;
     margin: 0;
@@ -42,7 +79,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
-    padding: 10px 15px;
+    padding: 5px 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -52,15 +89,35 @@ body {
     border-radius: 5px;
 }
 
+.contact-button-container {
+    flex: 1;
+    text-align: right;
+}
+
+.contact-button {
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #e68a00;
+}
+
 /* Hero (Descrição + Formulário) */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
     background: linear-gradient(120deg, #f4f4f4, #e0e0e0);
     color: #333;
-    text-align: left;
+    padding: 60px 15px; /* Espaçamento interno mais consistente */
+    text-align: center; /* Centraliza o texto */
 }
 
 .hero-content {
@@ -68,7 +125,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza os elementos horizontalmente */
 }
 
 .hero-text {
@@ -361,6 +418,20 @@ body {
 
     .specialties-description {
         text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column; /* Empilha os itens do menu */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .hero-content {
+        flex-direction: column; /* Alinha os elementos verticalmente */
+        padding: 20px; /* Ajusta o padding para mobile */
+    }
+
+    .custom-form {
+        width: 100%; /* Garante que o formulário ocupe a largura total */
     }
 }
 
@@ -659,5 +730,23 @@ body {
     .custom-form textarea,
     .custom-form .button {
         width: 100%;
+    }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-container,
+    .contact-button-container {
+        flex: none;
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        flex: none;
     }
 }

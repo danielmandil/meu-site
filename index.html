@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Consultoria TBD</title>
+    <title>CNF Consultoria </title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <h1 class="logo">Consultoria TBD</h1>
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#about">Sobre Nós</a></li>
-                    <li><a href="#specialties">Especialidades</a></li> <!-- Novo link adicionado -->
-                    <li><a href="#clients">Clientes</a></li> <!-- Link para a seção "Clientes" -->
-                    <li><a href="#contact">Contato</a></li>
-                    <li><a href="blog.html">Blog</a></li> <!-- Link para o Blog -->
-                </ul>
-            </nav>
+        <div class="container header-content">
+            <h1 class="logo-text">CNF Consultoria</h1>     
+            
+            <!-- Menu no centro -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#specialties">Especialidades</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botão de contato à direita -->
+        <div class="contact-button-container">
+            <a href="#contact" class="contact-button">Entre em Contato</a>
         </div>
-    </header>
+    </div>
+</header>
 
     <section id="contact" class="hero">
         <div class="container hero-content">
@@ -270,28 +275,6 @@
         </div>
     </section>
     
-    
-    <section id="clients" class="clients">
-        <div class="container">
-            <h2>Clientes</h2>
-            <div class="client-list">
-                <div class="client">
-                    <h3>Cliente 1</h3>
-                    <p>"A Consultoria TBD nos ajudou a escalar nossas operações e alcançar novos mercados com eficiência. Uma parceria incrível!"</p>
-                </div>
-                <div class="client">
-                    <h3>Cliente 2</h3>
-                    <p>"A experiência da equipe da TBD foi essencial para nos ajudar a resolver desafios de gestão e melhorar nossa performance."</p>
-                </div>
-                <div class="client">
-                    <h3>Cliente 3</h3>
-                    <p>"Com a Consultoria TBD, conseguimos estruturar um plano estratégico que transformou nosso negócio. Altamente recomendados!"</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    
     <footer class="footer">
         <div class="container">
             <p>Entre em contato conosco:</p>
@@ -320,17 +303,11 @@
         });
     </script>
 
-<!-- Botão de CTA fixo -->
-<a href="#contact" class="cta-button">
-    <i class="fa fa-envelope"></i> Entre em Contato
-</a>
+
 
 </footer>
 
-<!-- Botão de CTA fixo -->
-<a href="#contact" class="cta-button">
-    <i class="fa fa-envelope"></i> Entre em Contato
-</a>
+
 
 <script src="script.js"></script>
 <script>
